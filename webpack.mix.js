@@ -11,7 +11,9 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.copy('node_modules/jquery/dist/jquery.min.js', 'public/js');
-mix.copy('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', 'public/js');
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/scss/app.scss', 'public/css');
+    .postCss('resources/css/app.css', 'public/css', [
+        require('postcss-import'),
+        require('tailwindcss'),
+    ])
+    .webpackConfig(require('./webpack.config'));
