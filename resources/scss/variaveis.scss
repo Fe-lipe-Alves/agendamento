@@ -1,13 +1,21 @@
 
 //Cores
 $primary: #023246;
-$secondary:#287094;
+$secondary: #287094;
+$third: #c1e0ff;
 $gray: #d4d4ce;
 $light: #f6f6f6;
 
 $theme-colors: (
     'primary': #023246,
     'secondary': #287094,
-    'gray': #d4d4ce,
+    'third': #c1e0ff,
+    'dark-gray': #d4d4ce,
     'ligth': #f6f6f6
-)
+);
+
+$font-family-sans-serif: 'Montserrat';
+
+@mixin google-font($family) {
+    @import url("http://fonts.googleapis.com/css?family=#{$family}");
+}
