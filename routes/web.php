@@ -15,5 +15,5 @@ use \App\Http\Controllers\HomeController;
 */
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function (){
-    Route::get('/', [HomeController::class])->name('home');
+    Route::get('/', [HomeController::class, 'index'])->name('home');
 });

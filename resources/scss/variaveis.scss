@@ -15,6 +15,7 @@ $theme-colors: (
 );
 
 $font-family-sans-serif: 'Montserrat';
+$font-size-base: 0.8rem;
 
 @mixin google-font($family) {
     @import url("http://fonts.googleapis.com/css?family=#{$family}");
