@@ -17572,3 +17572,14 @@ body,
   box-shadow: 0 0 15px #b7b7b7;
 }
 
+.reticencias {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#content {
+  mix-height: calc(100vh - 100px - 3rem);
+}
+

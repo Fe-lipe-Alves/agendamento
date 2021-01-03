@@ -1,3 +1,3 @@
-require('./bootstrap');
-
-require('alpinejs');
+$(document).ready(function (){
+    $('[data-toggle="tooltip"]').tooltip();
+});

@@ -1,0 +1,18 @@
+#agenda .semana {
+  border-bottom: 1px solid #d4d4ce;
+}
+
+#agenda .semana .dia {
+  display: inline-block;
+  height: 80px;
+  border-left: 1px solid #d4d4ce;
+}
+
+#agenda .semana .dia:after {
+  content: attr(data-dia);
+}
+
+#agenda .semana .dia:first-child {
+  border-left: 0;
+}
+

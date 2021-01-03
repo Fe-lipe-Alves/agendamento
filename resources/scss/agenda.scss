@@ -1,0 +1,19 @@
+@import "variaveis";
+
+#agenda{
+    .semana{
+        border-bottom: 1px solid $gray;
+        .dia{
+            display: inline-block;
+            height: 80px;
+            border-left: 1px solid $gray;
+            &:after{
+                content: attr(data-dia);
+            }
+
+            &:first-child{
+                border-left: 0;
+            }
+        }
+    }
+}
