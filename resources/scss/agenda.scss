@@ -7,9 +7,22 @@
             border-top: 1px solid $gray;
         }
         .dia{
-            display: inline-block;
             height: 80px;
             border-right: 1px solid $gray;
+            display: inline-block;
+            &:first-child{
+                border-left: 1px solid $gray;
+            }
+            &.hoje{
+                border: 2px solid #a1cde4;
+                box-shadow: 0 0 10px 0 #a7a7a7;
+            }
+        }
+        .dia .cabecalho{
+            width: 100%;
+            height: 20px;
+            padding-left: 15px;
+            padding-right: 15px;
             &:after{
                 content: attr(data-dia);
                 position: absolute;
@@ -17,9 +30,6 @@
             }
             &.mutado:after{
                 color: #969696;
-            }
-            &:first-child{
-                border-left: 1px solid $gray;
             }
 
             $percent: 100;
@@ -55,6 +65,11 @@
                     content: ' ';
                     width: calc(100% - 4px);
                     background-color: #ffdbdb;
+                }
+            }
+            &.passado{
+                &[data-ocupacao]:before{
+                    background-color: #e7fbbd;
                 }
             }
         }
