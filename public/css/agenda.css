@@ -14,13 +14,448 @@
 
 #agenda .semana .dia:after {
   content: attr(data-dia);
+  position: absolute;
+  z-index: 2;
 }
 
 #agenda .semana .dia.mutado:after {
-  color: #cccccc;
+  color: #969696;
 }
 
 #agenda .semana .dia:first-child {
   border-left: 1px solid #d4d4ce;
+}
+
+#agenda .semana .dia.ocupacao-1:before {
+  width: calc((1% * 1) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-2:before {
+  width: calc((1% * 2) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-3:before {
+  width: calc((1% * 3) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-4:before {
+  width: calc((1% * 4) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-5:before {
+  width: calc((1% * 5) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-6:before {
+  width: calc((1% * 6) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-7:before {
+  width: calc((1% * 7) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-8:before {
+  width: calc((1% * 8) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-9:before {
+  width: calc((1% * 9) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-10:before {
+  width: calc((1% * 10) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-11:before {
+  width: calc((1% * 11) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-12:before {
+  width: calc((1% * 12) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-13:before {
+  width: calc((1% * 13) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-14:before {
+  width: calc((1% * 14) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-15:before {
+  width: calc((1% * 15) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-16:before {
+  width: calc((1% * 16) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-17:before {
+  width: calc((1% * 17) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-18:before {
+  width: calc((1% * 18) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-19:before {
+  width: calc((1% * 19) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-20:before {
+  width: calc((1% * 20) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-21:before {
+  width: calc((1% * 21) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-22:before {
+  width: calc((1% * 22) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-23:before {
+  width: calc((1% * 23) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-24:before {
+  width: calc((1% * 24) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-25:before {
+  width: calc((1% * 25) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-26:before {
+  width: calc((1% * 26) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-27:before {
+  width: calc((1% * 27) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-28:before {
+  width: calc((1% * 28) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-29:before {
+  width: calc((1% * 29) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-30:before {
+  width: calc((1% * 30) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-31:before {
+  width: calc((1% * 31) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-32:before {
+  width: calc((1% * 32) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-33:before {
+  width: calc((1% * 33) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-34:before {
+  width: calc((1% * 34) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-35:before {
+  width: calc((1% * 35) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-36:before {
+  width: calc((1% * 36) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-37:before {
+  width: calc((1% * 37) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-38:before {
+  width: calc((1% * 38) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-39:before {
+  width: calc((1% * 39) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-40:before {
+  width: calc((1% * 40) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-41:before {
+  width: calc((1% * 41) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-42:before {
+  width: calc((1% * 42) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-43:before {
+  width: calc((1% * 43) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-44:before {
+  width: calc((1% * 44) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-45:before {
+  width: calc((1% * 45) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-46:before {
+  width: calc((1% * 46) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-47:before {
+  width: calc((1% * 47) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-48:before {
+  width: calc((1% * 48) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-49:before {
+  width: calc((1% * 49) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-50:before {
+  width: calc((1% * 50) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-51:before {
+  width: calc((1% * 51) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-52:before {
+  width: calc((1% * 52) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-53:before {
+  width: calc((1% * 53) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-54:before {
+  width: calc((1% * 54) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-55:before {
+  width: calc((1% * 55) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-56:before {
+  width: calc((1% * 56) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-57:before {
+  width: calc((1% * 57) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-58:before {
+  width: calc((1% * 58) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-59:before {
+  width: calc((1% * 59) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-60:before {
+  width: calc((1% * 60) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-61:before {
+  width: calc((1% * 61) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-62:before {
+  width: calc((1% * 62) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-63:before {
+  width: calc((1% * 63) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-64:before {
+  width: calc((1% * 64) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-65:before {
+  width: calc((1% * 65) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-66:before {
+  width: calc((1% * 66) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-67:before {
+  width: calc((1% * 67) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-68:before {
+  width: calc((1% * 68) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-69:before {
+  width: calc((1% * 69) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-70:before {
+  width: calc((1% * 70) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-71:before {
+  width: calc((1% * 71) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-72:before {
+  width: calc((1% * 72) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-73:before {
+  width: calc((1% * 73) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-74:before {
+  width: calc((1% * 74) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-75:before {
+  width: calc((1% * 75) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-76:before {
+  width: calc((1% * 76) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-77:before {
+  width: calc((1% * 77) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-78:before {
+  width: calc((1% * 78) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-79:before {
+  width: calc((1% * 79) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-80:before {
+  width: calc((1% * 80) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-81:before {
+  width: calc((1% * 81) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-82:before {
+  width: calc((1% * 82) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-83:before {
+  width: calc((1% * 83) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-84:before {
+  width: calc((1% * 84) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-85:before {
+  width: calc((1% * 85) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-86:before {
+  width: calc((1% * 86) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-87:before {
+  width: calc((1% * 87) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-88:before {
+  width: calc((1% * 88) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-89:before {
+  width: calc((1% * 89) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-90:before {
+  width: calc((1% * 90) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-91:before {
+  width: calc((1% * 91) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-92:before {
+  width: calc((1% * 92) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-93:before {
+  width: calc((1% * 93) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-94:before {
+  width: calc((1% * 94) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-95:before {
+  width: calc((1% * 95) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-96:before {
+  width: calc((1% * 96) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-97:before {
+  width: calc((1% * 97) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-98:before {
+  width: calc((1% * 98) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-99:before {
+  width: calc((1% * 99) - 4px);
+}
+
+#agenda .semana .dia.ocupacao-100:before {
+  width: calc((1% * 100) - 4px);
+}
+
+#agenda .semana .dia[data-ocupacao]:before {
+  background-color: #c1e0ff;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  content: " ";
+  z-index: 1;
+  margin-left: -13px;
+  margin-right: -15px;
+}
+
+#agenda .semana .dia.mutado[data-ocupacao]:before {
+  background-color: #eeeeee;
+}
+
+#agenda .semana .dia.fim_de_semana[data-ocupacao]:before {
+  content: none;
+}
+
+#agenda .semana .dia.fim_de_semana:after {
+  color: #dcd8d8;
+}
+
+#agenda .semana .dia.feriado {
+  color: red;
+}
+
+#agenda .semana .dia.feriado[data-ocupacao]:before {
+  content: " ";
+  width: calc(100% - 4px);
+  background-color: #ffdbdb;
 }
 

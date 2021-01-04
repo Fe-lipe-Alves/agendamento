@@ -17568,6 +17568,11 @@ body,
   min-height: 100vh;
 }
 
+#body {
+  display: flex;
+  flex-direction: column;
+}
+
 .box-shadow {
   box-shadow: 0 0 15px #b7b7b7;
 }
@@ -17580,6 +17585,6 @@ body,
 }
 
 #content {
-  mix-height: calc(100vh - 100px - 3rem);
+  flex-grow: 1;
 }
 

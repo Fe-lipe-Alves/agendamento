@@ -20,15 +20,27 @@ class HomeController extends Controller
         $calendario = array();
 
         for ($i=$comeco_semana; $i<=$mes_anterior->copy()->daysInMonth; $i++){
-            $calendario[] = $mes_anterior->copy()->day($i);
+            $calendario[] = [
+                'data' => $mes_anterior->copy()->day($i),
+                'ocupacao' => rand(0,100),
+                'habilitado' => (bool)rand(0,1),
+            ];
         }
 
         for ($i=0; $i<$dias_no_mes; $i++){
-            $calendario[] = $mes_atual->copy()->addDays($i);
+            $calendario[] = [
+                'data' => $mes_atual->copy()->addDays($i),
+                'ocupacao' => rand(0,100),
+                'habilitado' => (bool)rand(0,1),
+            ];
         }
 
         for ($i=1; $i<=(6-$ultimo_dia); $i++){
-            $calendario[] = $mes_posterior->copy()->day($i);
+            $calendario[] = [
+                'data' => $mes_posterior->copy()->day($i),
+                'ocupacao' => rand(0,100),
+                'habilitado' => (bool)rand(0,1),
+            ];
         }
 
 

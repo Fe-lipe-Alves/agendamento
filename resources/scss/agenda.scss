@@ -12,12 +12,50 @@
             border-right: 1px solid $gray;
             &:after{
                 content: attr(data-dia);
+                position: absolute;
+                z-index: 2;
             }
             &.mutado:after{
-                color: #cccccc;
+                color: #969696;
             }
             &:first-child{
                 border-left: 1px solid $gray;
+            }
+
+            $percent: 100;
+            @for $i from 1 through $percent {
+                &.ocupacao-#{$i}:before {
+                    width: calc((1% * #{$i}) - 4px);
+                }
+            }
+            &[data-ocupacao]:before{
+                background-color: #c1e0ff;
+                height: 20px;
+                position: absolute;
+                top: 0;
+                content: ' ';
+                z-index: 1;
+                margin-left: -13px;
+                margin-right: -15px;
+            }
+            &.mutado[data-ocupacao]:before{
+                background-color: #eeeeee;
+            }
+            &.fim_de_semana{
+                &[data-ocupacao]:before{
+                    content: none;
+                }
+                &:after{
+                    color: #dcd8d8;
+                }
+            }
+            &.feriado{
+                color: red;
+                &[data-ocupacao]:before{
+                    content: ' ';
+                    width: calc(100% - 4px);
+                    background-color: #ffdbdb;
+                }
             }
         }
     }
