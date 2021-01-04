@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="row p-2 p-md-5">
-            @includeIf('components.agenda', ['data' => $data])
+            @includeIf('components.agenda', ['data' => $data, 'calendario' => $calendario])
         </div>
     </div>
 @endsection

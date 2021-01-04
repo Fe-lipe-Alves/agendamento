@@ -3,16 +3,21 @@
 #agenda{
     .semana{
         border-bottom: 1px solid $gray;
+        &:first-child{
+            border-top: 1px solid $gray;
+        }
         .dia{
             display: inline-block;
             height: 80px;
-            border-left: 1px solid $gray;
+            border-right: 1px solid $gray;
             &:after{
                 content: attr(data-dia);
             }
-
+            &.mutado:after{
+                color: #cccccc;
+            }
             &:first-child{
-                border-left: 0;
+                border-left: 1px solid $gray;
             }
         }
     }
