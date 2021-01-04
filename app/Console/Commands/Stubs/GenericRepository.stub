@@ -1,0 +1,13 @@
+<?php
+
+
+namespace App\Repositories;
+
+
+use App\Models\{{ model }};
+use App\Repositories\Contracts\{{ interfaceName }};
+
+class {{ className }} extends BaseRepository implements {{ interfaceName }}
+{
+    protected $modelClass = {{ model }}::class;
+}
