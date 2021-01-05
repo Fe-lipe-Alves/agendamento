@@ -17,8 +17,7 @@
 }
 
 #agenda .semana .dia.hoje {
-  border: 2px solid #a1cde4;
-  box-shadow: 0 0 10px 0 #a7a7a7;
+  background-color: #f0f5f8;
 }
 
 #agenda .semana .dia .cabecalho {
@@ -468,7 +467,7 @@
 #agenda .semana .dia .cabecalho.feriado[data-ocupacao]:before {
   content: " ";
   width: calc(100% - 4px);
-  background-color: #ffdbdb;
+  background-color: #ffffff;
 }
 
 #agenda .semana .dia .cabecalho.passado[data-ocupacao]:before {

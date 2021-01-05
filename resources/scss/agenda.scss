@@ -14,8 +14,9 @@
                 border-left: 1px solid $gray;
             }
             &.hoje{
-                border: 2px solid #a1cde4;
-                box-shadow: 0 0 10px 0 #a7a7a7;
+                //border: 2px solid #a1cde4;
+                //box-shadow: 0 0 15px 0 #d2d2d2 inset;
+                background-color: #f0f5f8;
             }
         }
         .dia .cabecalho{
@@ -64,7 +65,8 @@
                 &[data-ocupacao]:before{
                     content: ' ';
                     width: calc(100% - 4px);
-                    background-color: #ffdbdb;
+                    //background-color: #ffdbdb;
+                    background-color: #ffffff;
                 }
             }
             &.passado{

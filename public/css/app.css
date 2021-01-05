@@ -17584,6 +17584,10 @@ body,
   white-space: nowrap;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 #content {
   flex-grow: 1;
 }
