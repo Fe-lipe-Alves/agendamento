@@ -75,3 +75,17 @@
         }
     }
 }
+
+#detalhes{
+    height: 100vh;
+    #horarios{
+        max-height: calc(50vh - 100px);
+        overflow: auto;
+        .horario{
+            cursor: pointer;
+            &:hover{
+                background-color: #eeeeee;
+            }
+        }
+    }
+}

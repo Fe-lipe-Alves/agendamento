@@ -1,4 +1,4 @@
-<div class="col-12 col-md-2 border-right">
+<div class="col-12 col-md-2 d-none border-right">
     <nav class="nav flex-column">
         <p class="text-muted mt-3 mb-1">Filtrar</p>
         <a class="nav-link" href="#">Retorno</a>

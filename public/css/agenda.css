@@ -475,3 +475,20 @@
   background-color: #e7fbbd;
 }
 
+#detalhes {
+  height: 100vh;
+}
+
+#detalhes #horarios {
+  max-height: calc(50vh - 100px);
+  overflow: auto;
+}
+
+#detalhes #horarios .horario {
+  cursor: pointer;
+}
+
+#detalhes #horarios .horario:hover {
+  background-color: #eeeeee;
+}
+
