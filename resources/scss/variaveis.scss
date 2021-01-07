@@ -6,13 +6,19 @@ $third: #c1e0ff;
 $gray: #d4d4ce;
 $light: #f6f6f6;
 $shadow-color: #dedede;
+$danger: #ff9292;
+$success: #92ffa2;
+$alert: #faff92;
 
 $theme-colors: (
     'primary': #023246,
     'secondary': #287094,
     'third': #c1e0ff,
     'dark-gray': #d4d4ce,
-    'ligth': #f6f6f6
+    'ligth': #f6f6f6,
+    'danger': $danger,
+    'success': $success,
+    'alert': $alert
 );
 
 $font-family-sans-serif: 'Montserrat';

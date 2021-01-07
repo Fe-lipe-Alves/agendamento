@@ -36,6 +36,22 @@ body, #body{
     display: none;
 }
 
+// Alertas
+#alerta{
+    .alrt{
+        border-bottom: 1px solid #ffffff;
+        display: none;
+        &:nth-last-child(-n+3){
+            display: block;
+        }
+        .titulo{
+            .expandir, .fechar{
+                cursor: pointer;
+            }
+        }
+    }
+}
+
 // Content
 #content{
     flex-grow: 1;

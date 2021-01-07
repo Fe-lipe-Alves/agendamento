@@ -12,6 +12,7 @@
 <body>
     <div id="body" class=container-fluid>
         @includeIf('components.header')
+        <div id="alerta" class="row"></div>
 
         <section id="content" class="row my-5">
             @yield('content')
