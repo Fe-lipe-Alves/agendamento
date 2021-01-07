@@ -1,33 +1,46 @@
 var moment = require('moment'); // require
 moment().format();
 
-function gerarCalendario(data = null){
-    if(typeof data === "string"){
-        data = new Date(data);
-    }
+/**
+ * Muda a aba Detalhes para a aba referente ao botão recebido
+ * @param button_aba
+ */
+function mudarAbaDetalhes(button_aba){
+    let aba = button_aba.addClass('aba-ativa').data('aba');
+    $(aba).fadeIn('fast');
 
-    // variaveis
-    var date = moment(data);
-    var dia = date.day();
-    var mes = date.month();
-    var ano = date.year();
-    var dia_da_semana = date.weekday();
-    var dias_do_mes = date.daysInMonth();
-    var html = '';
-
-
-    if (dia_da_semana > 0){
-        for (let i=0; i<dia_da_semana; i++){
-
-        }
-    }
-
+    button_aba.siblings().each(function(){
+        let aba_ocultar = $(this).removeClass('aba-ativa').data('aba');
+        $(aba_ocultar).fadeOut('fast');
+    });
 }
 
-$(document).ready(function(){
+function abrirDetalhesDia(data){
+    $.ajax({
+        url: '', // ToDo // Mudar link para a rota real
+        type: 'get',
+        data: {'data': data},
+        dataType: 'json',
+        success: function (response) {
+            if (response.success === true){
 
+            } else {
 
-    console.log(dia, mes, ano, dias_do_mes, dia_da_semana);
+            }
+        }
+    });
+}
 
+$(document).ready(function() {
+    $('#btn-abrir-informacoes').on('click', function(){
+        mudarAbaDetalhes($(this));
+    });
 
+    $('#btn-abrir-horario').on('click', function(){
+        mudarAbaDetalhes($(this));
+    });
+
+    $('.dia').on('click', function(){
+        abrirDetalhesDia($(this).data('data'));
+    });
 });

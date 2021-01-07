@@ -17588,6 +17588,10 @@ body,
   cursor: pointer;
 }
 
+.display-none {
+  display: none;
+}
+
 #content {
   flex-grow: 1;
 }

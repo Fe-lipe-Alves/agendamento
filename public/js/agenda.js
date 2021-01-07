@@ -21701,30 +21701,27 @@ var moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js"
 
 
 moment().format();
+/**
+ * Muda a aba Detalhes para a aba referente ao botão recebido
+ * @param button_aba
+ */
 
-function gerarCalendario() {
-  var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-
-  if (typeof data === "string") {
-    data = new Date(data);
-  } // variaveis
-
-
-  var date = moment(data);
-  var dia = date.day();
-  var mes = date.month();
-  var ano = date.year();
-  var dia_da_semana = date.weekday();
-  var dias_do_mes = date.daysInMonth();
-  var html = '';
-
-  if (dia_da_semana > 0) {
-    for (var i = 0; i < dia_da_semana; i++) {}
-  }
+function mudarAbaDetalhes(button_aba) {
+  var aba = button_aba.addClass('aba-ativa').data('aba');
+  $(aba).fadeIn('fast');
+  button_aba.siblings().each(function () {
+    var aba_ocultar = $(this).removeClass('aba-ativa').data('aba');
+    $(aba_ocultar).fadeOut('fast');
+  });
 }
 
 $(document).ready(function () {
-  console.log(dia, mes, ano, dias_do_mes, dia_da_semana);
+  $('#btn-abrir-informacoes').on('click', function () {
+    mudarAbaDetalhes($(this));
+  });
+  $('#btn-abrir-horario').on('click', function () {
+    mudarAbaDetalhes($(this));
+  });
 });
 
 /***/ }),

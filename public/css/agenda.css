@@ -478,8 +478,14 @@
   height: 100vh;
 }
 
+#detalhes .aba-ativa {
+  background-color: #c1e0ff;
+  box-shadow: 0 0 5px #dedede;
+  color: #000000;
+}
+
 #detalhes #horarios {
-  max-height: calc(50vh - 100px);
+  max-height: calc(80px * 6);
   overflow: auto;
 }
 

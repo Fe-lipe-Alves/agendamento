@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
-    @yield('styles')
+    @stack('styles')
 </head>
 <body>
     <div id="body" class=container-fluid>
@@ -22,6 +22,6 @@
 <script src="{{ asset('js/jquery.min.js') }}" ></script>
 <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('js/app.js') }}" ></script>
-@yield('scripts')
+@stack('scripts')
 </body>
 </html>

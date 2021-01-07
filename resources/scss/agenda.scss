@@ -80,8 +80,13 @@
 
 #detalhes{
     height: 100vh;
+    .aba-ativa{
+        background-color: $third;
+        box-shadow: 0 0 5px $shadow-color;
+        color: #000000;
+    }
     #horarios{
-        max-height: calc(50vh - 100px);
+        max-height: calc(80px * 6);
         overflow: auto;
         .horario{
             cursor: pointer;
