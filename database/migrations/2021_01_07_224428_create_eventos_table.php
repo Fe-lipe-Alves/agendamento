@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAgendaTable extends Migration
+class CreateEventosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateAgendaTable extends Migration
      */
     public function up()
     {
-        Schema::create('agenda', function (Blueprint $table) {
+        Schema::create('eventos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('status_agenda_id')->constrained('status_agenda');
-//            $table->foreignId('especialista_id')->constrained('especialista');
-//            $table->foreignId('especialidade_id')->constrained('especialidade');
-            $table->date('data');
+            $table->foreignId('status_evento_id')->constrained('status_evento');
+            $table->foreignId('agenda_id')->constrained('agenda');
+            $table->dateTime('inicio');
+            $table->dateTime('termino');
             $table->boolean('hablitado');
         });
     }
@@ -30,6 +30,6 @@ class CreateAgendaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('agenda');
+        Schema::dropIfExists('eventos');
     }
 }

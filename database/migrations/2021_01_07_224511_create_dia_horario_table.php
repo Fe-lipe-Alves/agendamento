@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEspecialidadeEspecialistaTable extends Migration
+class CreateDiaHorarioTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateEspecialidadeEspecialistaTable extends Migration
      */
     public function up()
     {
-        Schema::create('especialidade_especialista', function (Blueprint $table) {
-            $table->foreignId('especialidade_id')->constrained('especialidades');
-            $table->foreignId('especialista_id')->constrained('especialistas');
+        Schema::create('dia_horario', function (Blueprint $table) {
+            $table->foreignId('dia_semana_id')->constrained('dias_semana');
+            $table->foreignId('horario_id')->constrained('horarios');
+            $table->foreignId('agenda_id')->constrained('agenda');
         });
     }
 
@@ -26,6 +27,6 @@ class CreateEspecialidadeEspecialistaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('especialidade_especialista');
+        Schema::dropIfExists('dia_horario');
     }
 }

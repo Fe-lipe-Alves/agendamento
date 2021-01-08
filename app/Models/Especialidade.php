@@ -17,6 +17,16 @@ class Especialidade extends Model
 
     public function especialistas()
     {
-        return $this->belongsToMany(Especialista::class);
+        return $this->belongsToMany(Especialista::class, 'agenda');
+    }
+
+    public function agenda()
+    {
+        return $this->hasMany(Agenda::class);
+    }
+
+    public function horarios()
+    {
+        return $this->belongsToMany(Horario::class, 'agenda');
     }
 }

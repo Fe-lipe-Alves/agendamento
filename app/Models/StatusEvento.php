@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class StatusAgenda extends Model
+class StatusEvento extends Model
 {
     use HasFactory;
 
-    protected $table = 'status_agenda';
+    protected $table = 'status_evento';
     public $timestamps = false;
 
     public function agenda()
     {
-        return $this->hasMany(Agenda::class, 'status_id', 'id');
+        return $this->hasMany(Evento::class, 'status_evento_id', 'id');
     }
 }
