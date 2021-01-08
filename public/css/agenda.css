@@ -7,8 +7,8 @@
 }
 
 #agenda .semana .dia {
-  height: 80px;
   border-right: 1px solid #d4d4ce;
+  height: 80px;
   display: inline-block;
 }
 

@@ -14,6 +14,13 @@ use \App\Http\Controllers\HomeController;
 |
 */
 
+function incluir($caminho){
+    require_once __DIR__.$caminho;
+}
+
 Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('/', [HomeController::class, 'index'])->name('home');
+
+    // Inclusões
+    incluir('/app/agenda.php');
 });

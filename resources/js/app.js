@@ -7,6 +7,7 @@ $(document).ready(function (){
         let alrt = $(this).parents('.alrt');
         alrt.find('.detalhes').slideDown();
         clearTimerAlert(alrt, true);
+        $(this).remove();
     })
     .on('click', '.fechar', function (){
         $(this).parents('.alrt').fadeOut(function (){
@@ -71,7 +72,7 @@ function alertar(mensagem, tipo = "danger", detalhes = ""){
                 '<p class="m-0">' +
                     mensagem+
                     '<span class="float-right">' +
-                        '<i class="fas fa-chevron-down text-muted expandir mx-2" title="Ver Mais"></i>' +
+                    (detalhes !== ""?'<i class="fas fa-chevron-down text-muted expandir mx-2" title="Ver Mais"></i>':'')+
                         '<i class="fas fa-times text-muted fechar mx-2" title="Remover"></i>' +
                     '</span>' +
                 '</p>' +
