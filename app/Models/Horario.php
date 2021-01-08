@@ -21,25 +21,11 @@ class Horario extends Model
 
     public function agenda()
     {
-        return $this->hasOneThrough(
-            Agenda::class,
-            DiaHorario::class,
-            'horario_id',
-            'id',
-            'id',
-            'agenda_id',
-        );
+        return $this->belongsToMany(Agenda::class);
     }
 
     public function dias()
     {
-        return $this->hasOneThrough(
-            DiaSemana::class,
-            DiaHorario::class,
-            'horario_id',
-            'id',
-            'id',
-            'dia_semana_id',
-        );
+        return $this->belongsTo(DiaSemana::class, 'dia_semana_id', 'id');
     }
 }

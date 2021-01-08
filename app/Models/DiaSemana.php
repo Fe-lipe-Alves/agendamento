@@ -17,25 +17,6 @@ class DiaSemana extends Model
 
     public function horarios()
     {
-        return $this->hasManyThrough(
-            Horario::class,
-            DiaHorario::class,
-            'dia_semana_id',
-            'id',
-            'id',
-            'horario_id'
-        );
-    }
-
-    public function agenda()
-    {
-        return $this->hasOneThrough(
-            Agenda::class,
-            DiaHorario::class,
-            'dia_semana_id',
-            'id',
-            'id',
-            'agenda_id',
-        );
+        return $this->hasMany(Horario::class);
     }
 }
