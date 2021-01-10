@@ -18,6 +18,8 @@ function mudarAbaDetalhes(button_aba){
 }
 
 function abrirDetalhesDia(data){
+    $('#detalhes').fadeIn('fast');
+
     $.ajax({
         url: '', // ToDo // Mudar link para a rota real
         type: 'get',
@@ -44,5 +46,19 @@ $(document).ready(function() {
 
     $('.dia').on('click', function(){
         abrirDetalhesDia($(this).data('data'));
+    });
+
+    $('#fechar-detalhes').on('click', function (){
+        $('#detalhes').fadeOut('fast');
+    });
+
+    $('.horario').on('click', function(){
+        $($('#informacoes')).fadeIn('fast');
+        $($('#horarios')).fadeOut('fast');
+    });
+
+    $('#ver-todos-horarios').on('click', function(){
+        $($('#informacoes')).fadeOut('fast');
+        $($('#horarios')).fadeIn('fast');
     });
 });

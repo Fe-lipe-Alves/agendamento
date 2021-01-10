@@ -1,18 +1,20 @@
 <div id="detalhes" class="col-12 col-md-3 border-left display-none">
+    <i id="fechar-detalhes" class="fas fa-times float-right mt-n4 mx-1 cursor-pointer" title="Fechar"></i>
+
     <div class="row px-3">
         <div class="col-12 py-2">
             <h4 class="text-center mb-0">15 jan. 2021</h4>
         </div>
-        <div class="col-12">
-            <div class="row text-center">
-                <div id="btn-abrir-horario" class="aba-ativa col-6 border-right-0 border py-1 cursor-pointer" data-aba="#horarios">
-                    <span>Horário</span>
-                </div>
-                <div id="btn-abrir-informacoes" class="col-6 border py-1 cursor-pointer" data-aba="#informacoes">
-                    <span>Informações</span>
-                </div>
-            </div>
-        </div>
+{{--        <div class="col-12">--}}
+{{--            <div class="row text-center">--}}
+{{--                <div id="btn-abrir-horario" class="aba-ativa col-6 border-right-0 border py-1 cursor-pointer" data-aba="#horarios">--}}
+{{--                    <span>Horário</span>--}}
+{{--                </div>--}}
+{{--                <div id="btn-abrir-informacoes" class="col-6 border py-1 cursor-pointer" data-aba="#informacoes">--}}
+{{--                    <span>Informações</span>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
         <div id="horarios" class="col-12 mt-4">
             <label class="font-weight-bold">Horários</label>
             <div class="w-100">
@@ -37,7 +39,7 @@
             <form action="">
                 <div class="form-group">
                     <p>Horário: <strong class="info-horario">09:00</strong>
-                        <button type="button" class="float-right ver-todos-horarios btn btn-sm btn-outline-primary">Ver todos</button>
+                        <button type="button" id="ver-todos-horarios" class="float-right ver-todos-horarios btn btn-sm btn-outline-primary">Ver todos</button>
                     </p>
                 </div>
                 <div class="form-group">
