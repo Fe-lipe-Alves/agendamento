@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEventosTable extends Migration
+class CreateStatusConsultasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateEventosTable extends Migration
      */
     public function up()
     {
-        Schema::create('eventos', function (Blueprint $table) {
+        Schema::create('status_consultas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('status_evento_id')->constrained('status_evento');
-            $table->foreignId('agenda_id')->constrained('agenda');
-            $table->dateTime('inicio');
-            $table->dateTime('termino');
+            $table->string('descricao');
             $table->boolean('habilitado');
         });
     }
@@ -30,6 +27,6 @@ class CreateEventosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('eventos');
+        Schema::dropIfExists('status_consultas');
     }
 }
