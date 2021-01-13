@@ -16,6 +16,7 @@ class CreateDiasSemanaTable extends Migration
         Schema::create('dias_semana', function (Blueprint $table) {
             $table->id();
             $table->string('descricao');
+            $table->integer('codigo');
         });
     }
 

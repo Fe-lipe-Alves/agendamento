@@ -10,7 +10,19 @@ class Evento extends Model
     use HasFactory;
 
     protected $table = 'eventos';
-    protected $fillable = [];
+    protected $fillable = [
+        'status_evento_id',
+        'agenda_id',
+        'data',
+        'inicio',
+        'termino',
+        'habilitado'
+    ];
+
+    public function agenda()
+    {
+        return $this->belongsTo(Agenda::class);
+    }
 
     public function status()
     {

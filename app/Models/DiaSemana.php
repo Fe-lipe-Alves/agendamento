@@ -12,7 +12,8 @@ class DiaSemana extends Model
     protected $table = 'dias_semana';
     public $timestamps = false;
     protected $fillable = [
-        'descricao'
+        'descricao',
+        'codigo'
     ];
 
     public function horarios()

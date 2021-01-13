@@ -19,8 +19,10 @@ class CreateConsultasTable extends Migration
             $table->foreignId('agenda_id')->constrained('agenda');
             $table->foreignId('criador_id')->constrained('users');
             $table->foreignId('status_consulta_id')->constrained('status_consultas');
-            $table->boolean('retorno');
+            $table->date('data');
+            $table->time('horario');
             $table->time('duracao');
+            $table->boolean('retorno');
             $table->text('observacao')->nullable();
             $table->timestamps();
         });
