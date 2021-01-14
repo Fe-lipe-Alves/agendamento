@@ -6,7 +6,7 @@
                 <H4 class="text-center d-inline-block mb-0 mx-2">Janeiro 2021</H4>
                 <button class="btn btn-sm" data-toggle="tooltip" title="Fevereiro 2021"><i class="fas fa-chevron-right"></i></button>
             </div>
-            <button class="btn btn-sm btn-primary justify-">Agendar Horário</button>
+            <button class="btn btn-sm btn-primary" id="btn-agendar-horario">Agendar Horário</button>
         </div>
     </div>
     <div class="row p-2 p-md-5">

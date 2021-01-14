@@ -21706,22 +21706,10 @@ var moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js"
 
 
 moment().format();
-/**
- * Muda a aba Detalhes para a aba referente ao botão recebido
- * @param button_aba
- */
-
-function mudarAbaDetalhes(button_aba) {
-  var aba = button_aba.addClass('aba-ativa').data('aba');
-  $(aba).fadeIn('fast');
-  button_aba.siblings().each(function () {
-    var aba_ocultar = $(this).removeClass('aba-ativa').data('aba');
-    $(aba_ocultar).fadeOut('fast');
-  });
-}
 
 function abrirDetalhesDia(data) {
   $('#detalhes').fadeIn('fast');
+  $('#btn-agendar-horario').hide();
   $.ajax({
     url: '',
     // ToDo // Mudar link para a rota real
@@ -21737,17 +21725,12 @@ function abrirDetalhesDia(data) {
 }
 
 $(document).ready(function () {
-  $('#btn-abrir-informacoes').on('click', function () {
-    mudarAbaDetalhes($(this));
-  });
-  $('#btn-abrir-horario').on('click', function () {
-    mudarAbaDetalhes($(this));
-  });
-  $('.dia').on('click', function () {
+  $('.dia, #btn-agendar-horario').on('click', function () {
     abrirDetalhesDia($(this).data('data'));
   });
   $('#fechar-detalhes').on('click', function () {
     $('#detalhes').fadeOut('fast');
+    $('#btn-agendar-horario').show();
   });
   $('.horario').on('click', function () {
     $($('#informacoes')).fadeIn('fast');
@@ -21868,7 +21851,7 @@ function alertar(mensagem) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Engeselt\Documents\Felipe A\Agendamento\Agendamento\resources\js\agenda.js */"./resources/js/agenda.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\StackWeb\Agendamento\agendamento\resources\js\agenda.js */"./resources/js/agenda.js");
 
 
 /***/ })
