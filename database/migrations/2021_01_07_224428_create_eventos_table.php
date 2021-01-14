@@ -17,9 +17,11 @@ class CreateEventosTable extends Migration
             $table->id();
             $table->foreignId('status_evento_id')->constrained('status_evento');
             $table->foreignId('agenda_id')->constrained('agenda');
+            $table->date('data');
             $table->dateTime('inicio');
             $table->dateTime('termino');
-            $table->boolean('hablitado');
+            $table->boolean('habilitado');
+            $table->timestamps();
         });
     }
 

@@ -16,6 +16,7 @@ class CreateHorariosTable extends Migration
         Schema::create('horarios', function (Blueprint $table) {
             $table->id();
             $table->foreignId('dia_semana_id')->constrained('dias_semana');
+            $table->foreignId('agenda_id')->constrained('agenda');
             $table->time('abertura');
             $table->time('inicio_intervalo')->nullable();
             $table->time('termino_intervalo')->nullable();

@@ -21,7 +21,7 @@ class Horario extends Model
 
     public function agenda()
     {
-        return $this->belongsToMany(Agenda::class);
+        return $this->belongsTo(Agenda::class);
     }
 
     public function dias()

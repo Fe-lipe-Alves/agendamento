@@ -28,6 +28,6 @@ class Agenda extends Model
 
     public function horarios()
     {
-        return $this->belongsToMany(Horario::class);
+        return $this->hasOne(Horario::class);
     }
 }

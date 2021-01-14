@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DiaSemana extends Model
+class StatusConsulta extends Model
 {
     use HasFactory;
 
-    protected $table = 'dias_semana';
+    protected $table = 'status_consultas';
     public $timestamps = false;
     protected $fillable = [
         'descricao',
-        'codigo'
+        'habilitado'
     ];
 
-    public function horarios()
+    public function consultas()
     {
-        return $this->hasMany(Horario::class);
+        return $this->hasMany(Consulta::class);
     }
 }

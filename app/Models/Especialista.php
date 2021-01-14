@@ -30,4 +30,9 @@ class Especialista extends Model
     {
         return $this->belongsToMany(Horario::class, 'agenda');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
