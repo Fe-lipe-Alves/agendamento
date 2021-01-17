@@ -7,6 +7,7 @@ namespace App\Repositories;
 use App\Models\Agenda;
 use App\Repositories\Contracts\AgendaInterface;
 use App\Repositories\Contracts\ConsultaInterface;
+use App\Repositories\Contracts\EventoInterface;
 use App\Repositories\Contracts\HorarioInterface;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -82,10 +83,14 @@ class AgendaRepository extends BaseRepository implements AgendaInterface
             $ocupacao = 0;
         }
 
+        $evento = (app(EventoInterface::class))->retornaExistente($data, $this->model());
+
         return [
             'data' => $data,
             'ocupacao' => $ocupacao,
             'habilitado' => $habilitado,
+            'disponivel' => $disponivel,
+            'evento' => $evento
         ];
     }
 

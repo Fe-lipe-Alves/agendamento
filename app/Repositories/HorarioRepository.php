@@ -26,41 +26,36 @@ class HorarioRepository extends BaseRepository implements HorarioInterface
 
     public function tempoHabil(Carbon $data, Model $agenda)
     {
-        if ($data->format('d/m/Y') == '12/01/2021')
-            $teste = 12;
+        try {
+            $dia_semana = (app(DiaSemanaInterface::class))->resolverDia($data);
 
-        $dia_semana = (app(DiaSemanaInterface::class))->resolverDia($data);
+            $horario = $this->obterPorDataAgenda($dia_semana, $agenda);
 
-
-        DB::enableQueryLog();
-        $horario = $this->obterPorDataAgenda($dia_semana, $agenda);
-
-//        $x = DB::getQueryLog();
-//        if ($data->format('d/m/Y') == '12/01/2021')
-//            dd($x);
-
-        if (!$horario)
-            return 0;
-
-        $abertura = new Carbon($horario->abertura);
-        $inicio_intervalo = new Carbon($horario->inicio_intervalo);
-        $termino_intervalo = new Carbon($horario->termino_intervalo);
-        $encerranto = new Carbon($horario->encerranto);
-
-        $duracao = ($encerranto->diffInMinutes($abertura)) - ($termino_intervalo->diffInMinutes($inicio_intervalo));
-
-        $evento = (app(EventoInterface::class))->retornaExistente($data, $this->model());
-        if ($evento){
-            $inicio_evento = new Carbon($evento->inicio);
-            $termino_evento = new Carbon($evento->termino);
-
-            if ($abertura->equalTo($inicio_evento) && $encerranto->equalTo($termino_evento))
+            if (!$horario)
                 return 0;
 
-            if (!$evento->habilitado)
-                return $duracao - ($termino_evento->diffInMinutes($inicio_evento));
-        }
+            $abertura = new Carbon($horario->abertura);
+            $inicio_intervalo = new Carbon($horario->inicio_intervalo);
+            $termino_intervalo = new Carbon($horario->termino_intervalo);
+            $encerranto = new Carbon($horario->encerranto);
 
-        return $duracao;
+            $duracao = ($encerranto->diffInMinutes($abertura)) - ($termino_intervalo->diffInMinutes($inicio_intervalo));
+
+            $eventos = (app(EventoInterface::class))->retornaExistente($data, $agenda);
+            if ($eventos) {
+                $horario_ocupado = 0;
+                foreach ($eventos as $evento ) {
+                    $inicio_evento = new Carbon($evento->inicio);
+                    $termino_evento = new Carbon($evento->termino);
+                    if (!$evento->habilitado)
+                        $horario_ocupado += ($termino_evento->diffInMinutes($inicio_evento));
+                }
+                return $duracao - $horario_ocupado;
+            }
+
+            return $duracao;
+        }catch (\Exception $exception){
+            throw $exception;
+        }
     }
 }

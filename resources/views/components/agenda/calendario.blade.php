@@ -7,8 +7,8 @@
                     {{ ($data->month != $calendario[$i]['data']->month)?'mutado':'' }}
                     {{ ($calendario[$i]['habilitado'] != true)?$calendario[$i]['habilitado']:'' }}
                     {{ ($calendario[$i]['data']->month == $data->month && $calendario[$i]['data']->day < $data->day)?'passado':'' }}
-                    {{ $calendario[$i]['data']->day==15?'feriado':'' }}"
-                         data-toggle="tooltip" data-placement="left" title="{{ $calendario[$i]['ocupacao'] }}% - 14:10"
+                    {{ $calendario[$i]['evento']->count() > 0?$calendario[$i]['evento']->first()->titulo:'' }}"
+                         data-toggle="tooltip" data-placement="left" title="{{ $calendario[$i]['ocupacao']."-". $calendario[$i]['disponivel'] }}"
                          data-dia="{{ $calendario[$i]['data']->day }}" data-data="{{ $calendario[$i]['data']->format('Y-m-d') }}"
                          data-ocupacao="{{ $calendario[$i]['ocupacao'] }}">
                     </div>

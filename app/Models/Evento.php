@@ -13,6 +13,8 @@ class Evento extends Model
     protected $fillable = [
         'status_evento_id',
         'agenda_id',
+        'titulo',
+        'descricao',
         'data',
         'inicio',
         'termino',
