@@ -37,6 +37,6 @@ class Consulta extends Model
 
     public function status()
     {
-        return $this->belongsTo(StatusConsulta::class);
+        return $this->belongsTo(StatusConsulta::class, 'status_consulta_id', 'id');
     }
 }

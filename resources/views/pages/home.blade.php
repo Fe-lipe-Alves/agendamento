@@ -9,7 +9,9 @@
 
     @includeIf('components.agenda.agenda')
 
-    @includeIf('components.agenda.detalhes')
+    <div id="detalhes" class="col-12 col-md-3 border-left display-none">
+{{--        @includeIf('components.agenda.detalhes')--}}
+    </div>
 @endsection
 
 @push('scripts')

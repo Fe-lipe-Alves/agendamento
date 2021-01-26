@@ -23,13 +23,20 @@ class AgendaController extends Controller
         $especialidade = Especialidade::query()->find(1);
         $data = Carbon::now();
 
+        $agenda = $this->repository->obterAgenda($especialista, $especialidade);
         $calendario = $this->repository->obterCalendarioAgenda($especialista, $especialidade, $data);
 
-        return view('pages.home', compact('data', 'calendario'));
+        return view('pages.home', compact('data', 'calendario', 'agenda'));
     }
 
     public function informacoesDia(Request $request)
     {
+        $data = $request->data ?? null;
+        $agenda = $request->agenda ?? null;
 
+        $resposta = $this->repository->informacoesData($data, $agenda);
+        $consultas = $resposta['consultas'];
+        $data = new Carbon($data);
+        return view('components.agenda.detalhes', compact('consultas', 'data'));
     }
 }
