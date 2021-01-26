@@ -10,7 +10,9 @@ use App\Repositories\Contracts\ConsultaInterface;
 use App\Repositories\Contracts\EventoInterface;
 use App\Repositories\Contracts\HorarioInterface;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
 
 class AgendaRepository extends BaseRepository implements AgendaInterface
 {
@@ -25,7 +27,7 @@ class AgendaRepository extends BaseRepository implements AgendaInterface
     {
         $agenda = $this->obterAgenda($especialista, $especialidade);
         if($agenda == null)
-            throw new \Exception("Agenda não identificada");
+            throw new Exception("Agenda não identificada");
 
         return $this->gerarCalendario($data);
     }
@@ -89,7 +91,7 @@ class AgendaRepository extends BaseRepository implements AgendaInterface
             'data' => $data,
             'ocupacao' => $ocupacao,
             'habilitado' => $habilitado,
-            'disponivel' => $disponivel,
+            'disponivel' => '$disponivel',
             'evento' => $evento
         ];
     }
@@ -109,5 +111,48 @@ class AgendaRepository extends BaseRepository implements AgendaInterface
         }
 
         return (int) (100 / $tempo_habil * $ocupado);
+    }
+
+    public function informacoesData($data, $agenda = null)
+    {
+        try {
+            $data = new Carbon($data);
+            if ($data == null)
+                throw new Exception("Data não identificada");
+
+            $agenda = Agenda::query()->find($agenda) ?? $this->model();
+            if (!isset($agenda->id))
+                throw new Exception("Agenda não identificada");
+
+            /** @var $consulta_repository ConsultaInterface */
+            $consulta_repository = app(ConsultaInterface::class);
+            $lista_consultas = $consulta_repository->todasData($data, $agenda);
+            $consultas = array();
+            foreach ($lista_consultas as $consulta){
+                $item = $consulta->toArray();
+                $paciente = $consulta->paciente;
+                $status = $consulta->status;
+                // ToDo // Adicionar vinculo com rótulos
+
+                $personalizado = [
+                    'paciente' => $paciente->nome,
+                    'status' => $status->descricao,
+                    'retorno' => (bool) $consulta->retorno,
+                ];
+                $consultas[] = array_merge($personalizado, Arr::only($item, ['id', 'paciente_id', 'horario', 'duracao']));
+            }
+
+            return [
+                'success' => true,
+                'consultas' => $consultas,
+                'rotulos' => [],
+            ];
+        } catch (Exception $exception){
+            throw $exception;
+            return [
+                'success' => false,
+                'message' => ($exception->getFile() == __FILE__)?$exception->getMessage() : "Erro ao consultar data",
+            ];
+        }
     }
 }

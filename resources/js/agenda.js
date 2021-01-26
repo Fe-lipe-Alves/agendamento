@@ -1,44 +1,34 @@
-import {alertar} from "@/app";
-
-var moment = require('moment'); // require
-moment().format();
-
-
 function abrirDetalhesDia(data){
     $('#detalhes').fadeIn('fast');
     $('#btn-agendar-horario').hide();
-
+console.log(data);
     $.ajax({
-        url: '', // ToDo // Mudar link para a rota real
+        url: rota_informacoes_dia,
         type: 'get',
-        data: {'data': data},
-        dataType: 'json',
+        data: {'data': data, 'agenda': $('#input_agenda_id').val()},
+        dataType: 'html',
         success: function (response) {
-            if (response.success === true){
-
-            } else {
-
-            }
+            $('#detalhes').html(response);
         }
     });
 }
 
 $(document).ready(function() {
-    $('.dia, #btn-agendar-horario').on('click', function(){
-        abrirDetalhesDia($(this).data('data'));
+    $(document).on('click', '.dia', function(){
+        abrirDetalhesDia($(this).attr('data-data'));
     });
 
-    $('#fechar-detalhes').on('click', function (){
+    $(document).on('click', '#fechar-detalhes', function (){
         $('#detalhes').fadeOut('fast');
         $('#btn-agendar-horario').show();
     });
 
-    $('.horario').on('click', function(){
+    $(document).on('click', '.horario', function(){
         $($('#informacoes')).fadeIn('fast');
         $($('#horarios')).fadeOut('fast');
     });
 
-    $('#ver-todos-horarios').on('click', function(){
+    $(document).on('click', '#ver-todos-horarios', function(){
         $($('#informacoes')).fadeOut('fast');
         $($('#horarios')).fadeIn('fast');
     });

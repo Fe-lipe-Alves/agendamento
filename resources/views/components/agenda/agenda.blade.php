@@ -1,3 +1,5 @@
+<input type="hidden" value="{{ $agenda->id }}" id="input_agenda_id">
+
 <div class="col">
     <div class="row px-3">
         <div class="col-12 d-flex justify-content-between border-bottom py-2">
@@ -13,5 +15,11 @@
         @includeIf('components.agenda.calendario', ['data' => $data, 'calendario' => $calendario])
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        var rota_informacoes_dia = "{{ route('agenda.informacoes-dia') }}";
+    </script>
+@endpush
 
 
