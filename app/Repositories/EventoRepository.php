@@ -18,10 +18,16 @@ class EventoRepository extends BaseRepository implements EventoInterface
         return $this->retornaExistente($data, $agenda) != false;
     }
 
-    public function retornaExistente(Carbon $data, Model $agenda)
+    public function retornaExistente(Carbon $data, Model $agenda, \Closure $closure = null)
     {
-        $resposta = Evento::query()->whereDate('data', '=', $data)
-            ->where('agenda_id', '=', $agenda->id)->get();
+        $consulta = Evento::query()->whereDate('data', '=', $data)
+            ->where('agenda_id', '=', $agenda->id);
+        if($closure != null){
+            $closure($consulta);
+        }
+
+        $resposta = $consulta->get();
+
         if ($resposta !=  null)
             return $resposta;
         else

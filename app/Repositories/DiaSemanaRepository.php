@@ -12,7 +12,6 @@ class DiaSemanaRepository extends BaseRepository implements DiaSemanaInterface
 {
     protected $modelClass = DiaSemana::class;
 
-
     public function resolverDia($data)
     {
         if ($data instanceof Carbon){

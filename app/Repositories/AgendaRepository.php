@@ -83,6 +83,7 @@ class AgendaRepository extends BaseRepository implements AgendaInterface
             $ocupacao = 0;
         }
 
+        $disponivel = $horario_repository->proximoHorario($data, $this->model());
         $evento = (app(EventoInterface::class))->retornaExistente($data, $this->model());
 
         return [

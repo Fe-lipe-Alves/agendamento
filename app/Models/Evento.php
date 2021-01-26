@@ -21,6 +21,8 @@ class Evento extends Model
         'habilitado'
     ];
 
+    protected $dates = ['data','inicio','termino'];
+
     public function agenda()
     {
         return $this->belongsTo(Agenda::class);
