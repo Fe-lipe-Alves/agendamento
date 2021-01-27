@@ -92,7 +92,7 @@ class AgendaRepository extends BaseRepository implements AgendaInterface
             'data' => $data,
             'ocupacao' => $ocupacao,
             'habilitado' => $habilitado,
-            'disponivel' => '$disponivel',
+            'disponivel' => $disponivel,
             'evento' => $evento
         ];
     }

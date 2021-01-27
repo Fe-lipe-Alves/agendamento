@@ -8,6 +8,7 @@ use App\Models\Evento;
 use App\Repositories\Contracts\EventoInterface;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class EventoRepository extends BaseRepository implements EventoInterface
 {
@@ -26,6 +27,7 @@ class EventoRepository extends BaseRepository implements EventoInterface
             $closure($consulta);
         }
 
+        DB::enableQueryLog();
         $resposta = $consulta->get();
 
         if ($resposta !=  null)

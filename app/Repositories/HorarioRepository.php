@@ -138,29 +138,46 @@ class HorarioRepository extends BaseRepository implements HorarioInterface
 
         $evento = $eventos->first();
         if ($evento){
-            $inicio = new Carbon($evento->inicio);
-            $termino = new Carbon($evento->termino);
-
-            if ($inicio->toTimeString() == $abertura->toTimeString() &&
-                $termino->toTimeString() == $encerranto->toTimeString()
-            ) {
-                return null;
-            }
 
             $inicio_atividade = $abertura;
             $intervalos = new Collection();
 
             foreach ($eventos as $evento){
-                if(!$evento->inicio->equalTo($inicio_atividade)){
-                    $intervalos->add([
-                        'inicio' => $inicio_atividade,
-                        'termino' => $evento->inicio
-                    ]);
+                if($evento->inicio->format('H:i') != $inicio_atividade->format('H:i')){
+                   $inicio_periodo = $inicio_atividade;
+                   $termino_periodo = $evento->inicio;
+
+                    if(strtotime($evento->inicio->format('H:i')) > strtotime($inicio_intervalo->format('H:i'))){
+                        if($evento->habilitado == true){
+                            $inicio_periodo = $evento->inicio;
+                        }
+                    }
+
+                    if(strtotime($evento->termino->format('H:i')) < strtotime($termino_intervalo->format('H:i'))){
+                        if($evento->habilitado == true){
+                            $termino_periodo = $evento->termino;
+                        }
+                    }
                 }
+
+                $intervalos->add([
+                    'inicio' => $inicio_periodo,
+                    'termino' => $termino_periodo
+                ]);
                 $inicio_atividade = $evento->termino;
             }
+
+            if($inicio_atividade->format('H:i') == $encerranto->format('H:i')){
+                return $intervalos;
+            }
+
+            $intervalos->add([
+                'inicio' => $inicio_atividade,
+                'termino' => $encerranto
+            ]);
+
+            if($data->format('d-m-y') == Carbon::tomorrow()->format('d-m-y'))
+            dd($intervalos, $abertura, $horario->abertura);
         }
-
-
     }
 }
