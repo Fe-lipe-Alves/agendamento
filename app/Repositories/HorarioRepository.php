@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 
 use App\Models\DiaSemana;
+use App\Models\Evento;
 use App\Models\Horario;
 use App\Repositories\Contracts\ConsultaInterface;
 use App\Repositories\Contracts\DiaSemanaInterface;
@@ -123,49 +124,56 @@ class HorarioRepository extends BaseRepository implements HorarioInterface
          */
         $evento_repository = app(EventoInterface::class);
         $eventos = $evento_repository->retornaExistente($data, $agenda, function (Builder $consulta){
-            $consulta->where('habilitado', false);
+//            $consulta->where('habilitado', false);
         });
         $dia_semana = (app(DiaSemanaInterface::class))->resolverDia($data);
         $horario = $this->obterPorDataAgenda($dia_semana, $agenda);
+        $intervalos = new Collection();
 
         if (!$horario)
-            return null;
+            return $intervalos;
 
         $abertura = new Carbon($horario->abertura);
         $inicio_intervalo = new Carbon($horario->inicio_intervalo);
         $termino_intervalo = new Carbon($horario->termino_intervalo);
         $encerranto = new Carbon($horario->encerramento);
 
-        $evento = $eventos->first();
-        if ($evento){
+        $eventos->add(new Evento([
+            'inicio' => $inicio_intervalo,
+            'termino' => $termino_intervalo,
+            'habilitado' => false
+        ]));
+
+        if ($eventos->count() > 0){
 
             $inicio_atividade = $abertura;
-            $intervalos = new Collection();
 
             foreach ($eventos as $evento){
-                if($evento->inicio->format('H:i') != $inicio_atividade->format('H:i')){
-                   $inicio_periodo = $inicio_atividade;
-                   $termino_periodo = $evento->inicio;
-
-                    if(strtotime($evento->inicio->format('H:i')) > strtotime($inicio_intervalo->format('H:i'))){
-                        if($evento->habilitado == true){
-                            $inicio_periodo = $evento->inicio;
-                        }
-                    }
-
-                    if(strtotime($evento->termino->format('H:i')) < strtotime($termino_intervalo->format('H:i'))){
-                        if($evento->habilitado == true){
-                            $termino_periodo = $evento->termino;
-                        }
-                    }
+                if($evento->inicio->format('H:i') != $inicio_atividade->format('H:i')) {
+                    $intervalos->add([
+                        'inicio' => $inicio_atividade,
+                        'termino' => $evento->inicio
+                    ]);
                 }
 
-                $intervalos->add([
-                    'inicio' => $inicio_periodo,
-                    'termino' => $termino_periodo
-                ]);
+                if ($evento->habilitado == true){
+                    $intervalos->add([
+                        'inicio' => $evento->inicio,
+                        'termino' => $evento->termino
+                    ]);
+                }
+
+                if (strtotime($evento->termino->format('H:i')) > strtotime($inicio_intervalo->format('H:i'))){
+                    $inicio_intervalo = $evento->termino;
+                }
+
+                if (strtotime($evento->inicio->format('H:i')) > strtotime($termino_intervalo->format('H:i'))){
+                    $termino_intervalo = $evento->inicio;
+                }
+
                 $inicio_atividade = $evento->termino;
             }
+
 
             if($inicio_atividade->format('H:i') == $encerranto->format('H:i')){
                 return $intervalos;
@@ -176,8 +184,9 @@ class HorarioRepository extends BaseRepository implements HorarioInterface
                 'termino' => $encerranto
             ]);
 
-            if($data->format('d-m-y') == Carbon::tomorrow()->format('d-m-y'))
-            dd($intervalos, $abertura, $horario->abertura);
         }
+
+        if($data->format('d-m-y') == Carbon::now()->format('d-m-y'))
+            dd($intervalos, $abertura, $horario->abertura);
     }
 }
